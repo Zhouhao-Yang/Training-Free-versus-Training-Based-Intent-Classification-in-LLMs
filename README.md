@@ -6,7 +6,7 @@ Official code release for the COLM 2026 paper **"Training-Free versus Training-B
 Department of Applied Mathematics and Statistics, Johns Hopkins University<br>
 \* Equal contribution
 
-The paper is accepted at the **Conference on Language Modeling (COLM) 2026** and appears on the [official COLM 2026 accepted-papers list](https://colmweb.org/AcceptedPapers.html).
+The paper is accepted at the **Conference on Language Modeling (COLM) 2026**.
 
 ## Overview
 
