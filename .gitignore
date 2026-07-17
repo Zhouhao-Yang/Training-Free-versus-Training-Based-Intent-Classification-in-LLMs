@@ -38,6 +38,3 @@ wandb/
 *.log
 *.pt
 
-# Local inputs used while preparing this public release
-2454_Training_Free_versus_Trai_Supplementary Material.zip
-Intent_Classification_in_LLMs (3).pdf
