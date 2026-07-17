@@ -229,59 +229,7 @@ python calibration.py \
 
 This is more expensive than the quickstart: it first computes a large reference estimate and then recomputes each requested subset.
 
-## Repository structure
 
-```text
-.
-|-- baselines.py                 # Estimate NormStat or VecStat class anchors
-|-- classifier.py                # Evaluate training-free classification
-|-- calibration.py               # Calibration-convergence experiment
-|-- train_encoder.py             # RoBERTa baseline
-|-- evaluate_direct_llm.py       # Zero-/few-shot causal-LLM baseline
-|-- benchmark/
-|   |-- extract_embeddings.py    # Cache frozen LLM representations
-|   |-- train_classifier.py      # Train/evaluate MLP and linear probes
-|   `-- utils.py                 # Probe models and artifact naming
-|-- src/
-|   |-- aggregation.py           # Batch-independent sufficient-statistic pooling
-|   |-- data.py                  # Dataset loading and batching
-|   |-- encoder_utils.py         # Encoder dataset/metric utilities
-|   |-- helper.py                # Seeding, logging, and DuckDB records
-|   |-- metrics.py               # NormStat, VecStat, and inference rules
-|   `-- paths.py                 # Portable artifact paths
-|-- configs/                     # Labels, sample sizes, and dataset plans
-|-- adv_datasets/                # Adversarial prompts and provenance notes
-|-- tests/                       # Lightweight portability tests
-|-- CITATION.cff
-`-- requirements.txt
-```
-
-Generated anchors, embeddings, probe checkpoints, model checkpoints, results, logs, and DuckDB files are intentionally excluded from Git.
-
-## Reproducibility notes
-
-- The paper reports mean and standard deviation over three seeds. Run each workflow once per seed and aggregate the records; seed 42 above is only an example.
-- Keep model/tokenizer revisions, dataset revisions, sequence length, layer selection, sample caps, seed, and training fraction fixed.
-- Fine-grained loaders take calibration examples from the start of a seeded permutation and evaluation examples from its end.
-- Model and dataset revisions are not embedded in filenames; record resolved revisions when exact reruns matter.
-- Exact bitwise agreement can vary with GPU architecture, CUDA libraries, and nondeterministic kernels.
-- Anchor pooling uses token counts, sums, and squared sums across batches, so results do not depend on the final mini-batch size.
-- PyTorch `.pt` artifacts should only be loaded from trusted sources.
-
-### Submitted-code compatibility
-
-Two implementation details were corrected while preparing this release. The default code
-normalizes NormStat using the output width of the monitored projection, matching the
-statistic defined in the paper, and pools anchor sufficient statistics using token counts.
-The submitted experiment code instead used the projection's input width and averaged each
-mini-batch's statistics with equal weight, including a shorter final batch. These choices
-can cause small numerical differences from the reported tables.
-
-For closest compatibility with table-generation runs from the submitted code, pass
-`--legacy-implementation` to both `baselines.py` and `classifier.py`. Legacy anchors and
-results receive a `_legacy` filename suffix so that they cannot be mixed accidentally with
-corrected artifacts. The exact pre-release development snapshot is
-[`NanChanNN/use_case_inference_test@9662bc6`](https://github.com/NanChanNN/use_case_inference_test/tree/9662bc69131912ee5975a557a0b24f1e22a7f399).
 
 ## Citation
 
@@ -294,8 +242,3 @@ corrected artifacts. The exact pre-release development snapshot is
 }
 ```
 
-No arXiv identifier, DOI, or proceedings page range is assumed here; update the entry when canonical publication metadata becomes available. Machine-readable citation metadata is in [`CITATION.cff`](CITATION.cff).
-
-## License
-
-No repository-wide software license was present in the source repository, so none has been invented for this release. Public visibility alone does not grant reuse rights. Add an explicit `LICENSE` file before describing the project as open source. Models and datasets remain governed by their own licenses and terms.
