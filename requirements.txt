@@ -1,0 +1,10 @@
+accelerate>=0.30
+datasets>=2.19
+duckdb>=1.0
+evaluate>=0.4
+numpy>=1.24
+requests>=2.31
+scikit-learn>=1.3
+torch>=2.1
+tqdm>=4.66
+transformers>=4.51

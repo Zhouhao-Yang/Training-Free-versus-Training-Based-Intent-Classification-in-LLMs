@@ -1,0 +1,246 @@
+{
+  "L1": {
+    "training set": {
+      "code": "magicoder",
+      "text": "mmlu_history",
+      "math": "gsm8k"
+    },
+    "test set": [
+      [
+        "magicoder",
+        "code",
+        5000
+      ],
+      [
+        "mmlu_history",
+        "text",
+        5000
+      ],
+      [
+        "gsm8k",
+        "math",
+        5000
+      ],
+      [
+        "math500",
+        "math",
+        5000
+      ],
+      [
+        "humaneval",
+        "code",
+        5000
+      ]
+    ],
+    "label2id": {
+      "code": 0,
+      "text": 1,
+      "math": 2
+    },
+    "train_nbsamples": 2000
+  },
+  "L1:Adv": {
+    "training set": {
+      "code": "magicoder",
+      "text": "mmlu_history",
+      "math": "gsm8k"
+    },
+    "test set": [
+      [
+        "adv_math500_easy",
+        "math",
+        5000
+      ],
+      [
+        "adv_math500_medium",
+        "math",
+        5000
+      ],
+      [
+        "adv_math500_hard",
+        "math",
+        5000
+      ]
+    ],
+    "label2id": {
+      "code": 0,
+      "text": 1,
+      "math": 2
+    },
+    "train_nbsamples": 2000
+  },
+  "L2:PLang": {
+    "training set": {
+      "cpp": "magicoder:cpp",
+      "csharp": "magicoder:csharp",
+      "java": "magicoder:java",
+      "php": "magicoder:php",
+      "python": "magicoder:python",
+      "rust": "magicoder:rust",
+      "shell": "magicoder:shell",
+      "swift": "magicoder:swift",
+      "typescript": "magicoder:typescript"
+    },
+    "test set": [
+      [
+        "magicoder:cpp",
+        "cpp",
+        1945
+      ],
+      [
+        "magicoder:csharp",
+        "csharp",
+        1638
+      ],
+      [
+        "magicoder:java",
+        "java",
+        2158
+      ],
+      [
+        "magicoder:php",
+        "php",
+        894
+      ],
+      [
+        "magicoder:python",
+        "python",
+        5000
+      ],
+      [
+        "magicoder:rust",
+        "rust",
+        2067
+      ],
+      [
+        "magicoder:shell",
+        "shell",
+        420
+      ],
+      [
+        "magicoder:swift",
+        "swift",
+        1761
+      ],
+      [
+        "magicoder:typescript",
+        "typescript",
+        2245
+      ]
+    ],
+    "label2id": {
+      "cpp": 0,
+      "csharp": 1,
+      "java": 2,
+      "php": 3,
+      "python": 4,
+      "rust": 5,
+      "shell": 6,
+      "swift": 7,
+      "typescript": 8
+    },
+    "train_nbsamples": 2000
+  },
+  "L2:Math": {
+    "training set": {
+      "Algebra": "comp_math:Algebra",
+      "Counting_&_Probability": "comp_math:Counting_&_Probability",
+      "Geometry": "comp_math:Geometry",
+      "Intermediate_Algebra": "comp_math:Intermediate_Algebra",
+      "Number_Theory": "comp_math:Number_Theory",
+      "Prealgebra": "comp_math:Prealgebra",
+      "Precalculus": "comp_math:Precalculus"
+    },
+    "test set": [
+      [
+        "comp_math:Algebra",
+        "Algebra",
+        2131
+      ],
+      [
+        "comp_math:Counting_&_Probability",
+        "Counting_&_Probability",
+        445
+      ],
+      [
+        "comp_math:Geometry",
+        "Geometry",
+        549
+      ],
+      [
+        "comp_math:Intermediate_Algebra",
+        "Intermediate_Algebra",
+        1398
+      ],
+      [
+        "comp_math:Number_Theory",
+        "Number_Theory",
+        609
+      ],
+      [
+        "comp_math:Prealgebra",
+        "Prealgebra",
+        1276
+      ],
+      [
+        "comp_math:Precalculus",
+        "Precalculus",
+        492
+      ]
+    ],
+    "label2id": {
+      "Algebra": 0,
+      "Counting_&_Probability": 1,
+      "Geometry": 2,
+      "Intermediate_Algebra": 3,
+      "Number_Theory": 4,
+      "Prealgebra": 5,
+      "Precalculus": 6
+    },
+    "train_nbsamples": 800
+  },
+  "L2:NatLang-5": {
+    "training set": {
+      "Sinhala": "aya:Sinhala",
+      "Tamil": "aya:Tamil",
+      "English": "aya:English",
+      "Moroccan_Arabic": "aya:Moroccan_Arabic",
+      "Japanese": "aya:Japanese"
+    },
+    "test set": [
+      [
+        "aya:Sinhala",
+        "Sinhala",
+        3000
+      ],
+      [
+        "aya:Tamil",
+        "Tamil",
+        3000
+      ],
+      [
+        "aya:English",
+        "English",
+        3000
+      ],
+      [
+        "aya:Moroccan_Arabic",
+        "Moroccan_Arabic",
+        3000
+      ],
+      [
+        "aya:Japanese",
+        "Japanese",
+        3000
+      ]
+    ],
+    "label2id": {
+      "Sinhala": 0,
+      "Tamil": 1,
+      "English": 2,
+      "Moroccan_Arabic": 3,
+      "Japanese": 4
+    },
+    "train_nbsamples": 512
+  }
+}

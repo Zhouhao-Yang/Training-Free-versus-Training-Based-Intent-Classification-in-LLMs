@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Editors and operating systems
+.idea/
+.vscode/
+/.agents/
+.DS_Store
+Thumbs.db
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+
+# Models, generated artifacts, and experiment records
+anchors/
+artifacts/
+baseline_training/
+benchmark_training/
+benchmark_testing/
+benchmark_models/
+checkpoints/
+exp_records*/
+figures/
+logs/
+results/
+test_records/
+wandb/
+*.duckdb
+*.log
+*.pt
+
+# Local inputs used while preparing this public release
+2454_Training_Free_versus_Trai_Supplementary Material.zip
+Intent_Classification_in_LLMs (3).pdf
