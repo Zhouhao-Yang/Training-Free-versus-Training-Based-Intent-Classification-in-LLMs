@@ -33,9 +33,10 @@ def parse_prediction(text, valid_letters):
     """Extract a class letter while retaining the raw generation for auditing."""
 
     stripped = text.strip().upper()
-    match = re.search(r"\b([A-Z])\b", stripped)
-    if match and match.group(1) in valid_letters:
-        return match.group(1)
+    valid_pattern = "".join(re.escape(letter) for letter in sorted(valid_letters))
+    matches = re.findall(rf"\b([{valid_pattern}])\b", stripped)
+    if matches:
+        return matches[-1]
     if stripped and stripped[0] in valid_letters:
         return stripped[0]
     return None
@@ -203,6 +204,7 @@ def main():
                 padding=True,
                 truncation=True,
                 max_length=args.seqlen,
+                add_special_tokens=not args.chat_model,
             )
             tokens = {key: value.to(input_device) for key, value in tokens.items()}
             with torch.no_grad():
