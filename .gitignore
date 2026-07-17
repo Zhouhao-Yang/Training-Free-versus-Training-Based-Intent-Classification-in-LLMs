@@ -9,6 +9,7 @@ __pycache__/
 venv/
 
 # Editors and operating systems
+.github/
 .idea/
 .vscode/
 /.agents/
