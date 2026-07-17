@@ -116,7 +116,9 @@ def get_n_layers(model_name: str) -> int:
     """Return layer counts for the models evaluated in the paper."""
     if "Qwen3-1.7B" in model_name:
         return 28
-    if "Llama-3.2" in model_name:
+    if "Llama-3.2-3B" in model_name:
+        return 28
+    if "Llama-3.2-1B" in model_name:
         return 16
     if "Qwen3-8B" in model_name or "Qwen3-4B" in model_name:
         return 36
